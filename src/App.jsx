@@ -1,18 +1,13 @@
-import axios from "axios";
-import React from "react";
-import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-
-
+import Header from './Header';
+import Footer from './Footer';
+import Explorer from './Explorer';
 
 function App() {
   return (
     <div className="App">
-      {/* <Header />
+      <Header />
       <Explorer />
-      <Footer /> */}
+      <Footer />
     </div>
   );
 }
