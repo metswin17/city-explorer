@@ -17,6 +17,8 @@ function App() {
  
     setLocation(response.data[0]);
   }
+
+  const mapURL = `https://maps.locationiq.com/v3/staticmap?key=${API_KEY}&center=${location.lat},${location.lon}&zoom=10`;
  
   return (
     <div className="container mt-5">
@@ -42,6 +44,12 @@ function App() {
           <p>Latitude: {location.lat}</p>
  
           <p>Longitude: {location.lon}</p>
+
+          <img
+  className="img-fluid rounded"
+  src={mapURL}
+  alt="Map of searched city"
+/>
  
         </div>
       )}
