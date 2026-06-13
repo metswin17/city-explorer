@@ -12,6 +12,9 @@ function Explorer() {
     event.preventDefault();
     setDisplayResults(true);
   }
+const url = `https://us1.locationiq.com/v1/search.php?key=${API_KEY}&q=${searchQuery}&format=json`;
+
+
 
   return (
     <div id="main">
