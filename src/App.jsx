@@ -8,6 +8,7 @@ function App() {
  
   const [searchQuery, setSearchQuery] = useState('');
   const [location, setLocation] = useState({});
+  const [weather, setWeather] = useState([]);
 
   const [error, setError] = useState('');
 
@@ -31,6 +32,12 @@ function App() {
       const response = await axios.get(API);
   
       setLocation(response.data[0]);
+
+      const weatherResponse = await axios.get(
+        `http://localhost:3001/weather?lat=${response.data[0].lat}&lon=${response.data[0].lon}`
+      );
+      
+      setWeather(weatherResponse.data);
   
     } catch (error) {
   
@@ -98,6 +105,18 @@ function App() {
  
         </div>
       )}
+
+{weather.length > 0 && (
+  <div className="card p-3 mt-3">
+    <h2>Weather Forecast</h2>
+
+    {weather.map((day, index) => (
+      <div key={index}>
+        <p>{day.date}: {day.description}</p>
+      </div>
+    ))}
+  </div>
+)}
  
     </div>
   );
