@@ -124,10 +124,6 @@ function App() {
     ))}
   </div>
 )}
- 
-    </div>
-  );
-}
 
 {movies.length > 0 && (
   <div className="card p-3 mt-3">
@@ -150,7 +146,9 @@ function App() {
   </div>
 )}
  
-export default App;
+    </div>
+  );
+}
  
-
+export default App;
  
