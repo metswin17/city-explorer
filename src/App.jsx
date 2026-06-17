@@ -9,6 +9,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [location, setLocation] = useState({});
   const [weather, setWeather] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   const [error, setError] = useState('');
 
