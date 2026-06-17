@@ -39,6 +39,12 @@ function App() {
       );
       
       setWeather(weatherResponse.data);
+
+      const movieResponse = await axios.get(
+        `http://localhost:3001/movies?searchQuery=${searchQuery}`
+      );
+      
+      setMovies(movieResponse.data);
   
     } catch (error) {
   
@@ -122,6 +128,27 @@ function App() {
     </div>
   );
 }
+
+{movies.length > 0 && (
+  <div className="card p-3 mt-3">
+    <h2>Movies</h2>
+
+    {movies.map((movie) => (
+      <div key={movie.title}>
+        <h3>{movie.title}</h3>
+        <p>{movie.overview}</p>
+
+        {movie.image_url && (
+          <img
+            className="img-fluid rounded"
+            src={movie.image_url}
+            alt={movie.title}
+          />
+        )}
+      </div>
+    ))}
+  </div>
+)}
  
 export default App;
  
