@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Weather from './Weather';
  
 const API_KEY = import.meta.env.VITE_API_KEY;
  
@@ -114,15 +115,7 @@ function App() {
       )}
 
 {weather.length > 0 && (
-  <div className="card p-3 mt-3">
-    <h2>Weather Forecast</h2>
-
-    {weather.map((day, index) => (
-      <div key={index}>
-        <p>{day.date}: {day.description}</p>
-      </div>
-    ))}
-  </div>
+  <Weather weather={weather} />
 )}
 
 {movies.length > 0 && (
