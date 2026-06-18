@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Weather from './Weather';
+import Movies from './Movies';
  
 const API_KEY = import.meta.env.VITE_API_KEY;
  
@@ -118,26 +119,12 @@ function App() {
   <Weather weather={weather} />
 )}
 
+
 {movies.length > 0 && (
-  <div className="card p-3 mt-3">
-    <h2>Movies</h2>
-
-    {movies.map((movie) => (
-      <div key={movie.title}>
-        <h3>{movie.title}</h3>
-        <p>{movie.overview}</p>
-
-        {movie.image_url && (
-          <img
-            className="img-fluid rounded"
-            src={movie.image_url}
-            alt={movie.title}
-          />
-        )}
-      </div>
-    ))}
-  </div>
+  <Movies movies={movies} />
 )}
+
+
  
     </div>
   );
